@@ -4,7 +4,7 @@ $("#cardForm").submit(function(e) {
     console.log(form.serialize());
     $.ajax({
            type: "POST",
-           url: "https://send.php",
+           url: "/send.php",
            data: form.serialize(), // serializes the form's elements.
            success: function(data)
            {
