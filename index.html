@@ -1,31 +1,542 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Форма обратной связи на PHP с отправкой на почту</title>
-</head>
-<body>
-  <h2>Форма обратной связи на PHP</h2>
-  <!--Данные введенные пользователем обрабатываются кодом в mail.php-->
-  <form action="send.php" method="post">
-  <!--Тег используется для группировки связанных элементов в форме-->
-  <fieldset>
-  <!--Тег задает заголовок для групповых элементов-->
-  <legend>Оставьте сообщение:</legend>
-  Ваше имя:
-  <!--Устанавливает однострочное текстовое поле ввода:-->
-  <input type="text" name="name">
-  <!--Используется для полей ввода, которые должны содержать адрес электронной почты.-->
-  E-mail:
-  <input type="text" name="email">
-  Номер телефона:
-  <input type="text" name="phone">
-  Сообщение:
-  <!--Тег разрешает многострочный ввод текста.-->
-    Текстовая область может содержать неограниченное количество символов-->
-  <textarea rows="10" cols="45" name="message"></textarea>
-  <!--Устанавливает кнопку для отправки данных формы в обработчик формы.-->
-  <input type="submit" value="Отправить сообщение">
-  </fieldset>
-  </form>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOSHELIVKA | Футболки з оригiнальним дизайном</title>
+    <link rel="shortcut icon" href="./img/logo.png" type="image/png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="./css/owl.carousel.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,400;8..144,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .owl-carousel {
+      position: relative;
+    }
+    .owl-nav {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 40%;
+      width: 100%;
+    }
+    .slider-item {
+      max-width: 200px;
+      width: 100%;
+      height: 350px;
+      margin: 0 auto;
+    }
+    .owl-carousel {
+      position: relative;
+      width: 900px;
+      margin: 0 auto;
+    }
+    .owl-carousel .owl-item img {
+      display: block;
+      max-width: 200px;
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+    }
+    .slider-item__img img {
+      height: inherit;
+    }
+
+    @media screen and (max-width: 576px) {
+      .slider-item {
+        height: 530px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .owl-carousel .owl-item img {
+        display: block;
+      }
+    }
+  </style>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <header class="header">
+          <div class="container f-sb">
+            <a
+              class="insta"
+              target="_blank"
+              href="https://www.instagram.com/koshelivka_ua/"
+            ></a>
+            <div class="hidden-img"></div>
+            <nav class="navigation">
+              <ul class="nav-list f-sb">
+                <li class="nav-list__item">
+                  <a href="#gallery">Принти</a>
+                </li>
+                <li class="nav-list__item"><a href="#size"> Розміри</a></li>
+                <li class="nav-list__item"><a href="#review">Вiдгуки</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <div
+          class="hero-content f-sb"
+          data-aos="zoom-in"
+          data-aos-duration="1200"
+          data-aos-delay="1050"
+        >
+          >
+          <div class="col">
+            <h1 class="main-title">KOSHELIVKA <strong>. UA</strong></h1>
+            <p class="main-subtitle">футболки з оригiнальним дизайном</p>
+            <p class="hero-note">
+              Цікавими ідеями та нестандартними рішеннями ми ділимося з вами.
+              Сподіваємося, нашi роботи надихнуть створення унікального образу
+              для вас.
+            </p>
+          </div>
+          <div class="col">
+            <div class="top-img"></div>
+            <div class="mid-img"></div>
+            <div class="bot-img"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pre-gallery">
+      <div class="container f-sb">
+        <div class="col">
+          <div
+            class="big-img left-top"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="450"
+          ></div>
+          <div
+            class="little-img left-bottom"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="950"
+          ></div>
+        </div>
+        <div class="col">
+          <div
+            class="little-img right-top"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="450"
+          ></div>
+          <div
+            class="big-img right-bottom"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="950"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <h2 class="sec-title">Кльово творимо</h2>
+        <p class="sec-subtitle">
+          Ми маленька команда яка базується в Києві,працюємо тільки на результат
+          і мислимо позитивно.Намагаємося робити цей світ кращим і не забуваємо
+          про креатив.Наш концепт не новий, але ми робимо свою справу з любов'ю
+          до вас.
+        </p>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h3 class="block-heading">Iндивідуальність та стиль</h3>
+        <p class="block-subheading">
+          Нанесення принту, логотипу або малюнку на одяг – найкращий спосіб
+          підкреслити індивідуальність. Наша продукція компанії буде цікава
+          всім, хто цінує самовираження та стиль, та впевненiсть.
+        </p>
+        <div class="gallery-wrapper">
+          <div class="row-top f-sb">
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="450"
+            ></div>
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="850"
+            ></div>
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="1250"
+            ></div>
+          </div>
+
+          <div class="row-bottom f-sb">
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="1650"
+            ></div>
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="2050"
+            ></div>
+            <div
+              class="gallery-img"
+              data-aos="flip-right"
+              data-aos-duration="1200"
+              data-aos-delay="2500"
+            ></div>
+          </div>
+        </div>
+        <p class="block-subheading">
+          Ще бiльше цiкавих принтiв дивися у нашому
+          <a target="_blank" href="https://www.instagram.com/koshelivka_ua/">
+            iнстаграм.</a
+          >
+        </p>
+      </div>
+    </section>
+    <section id="size" class="size">
+      <div class="container">
+        <h3 class="block-heading">Сітка є - проблем немає</h3>
+        <p class="block-subheading">
+          Як можна точніше підберіть собі розмір, а якщо залишитися якісь
+          питання, ми з радістю на них відповімо
+        </p>
+        <div class="table-wrapper">
+          <table cellspacing="0">
+            <tr>
+              <th colspan="2">Розмiри Унiсекс</th>
+              <th colspan="2">Розмiри Жiночi</th>
+            </tr>
+            <tr>
+              <td colspan="4"><em>XSmall</em></td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td colspan="4">Small</td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td colspan="4">Medium</td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td colspan="4">Large</td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td colspan="4">XLarge</td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td colspan="4">XXLarge</td>
+            </tr>
+            <tr>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+              <td>Український розмiр</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+              <td>Обхват грудей</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+              <td>Обхват талії</td>
+              <td>40-42</td>
+            </tr>
+            <tr>
+              <td>Зріст</td>
+              <td>40-42</td>
+              <td>Зріст</td>
+              <td>40-42</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="mark-direct">
+      <div class="container">
+        <div class="content">
+          <a
+            href="https://www.instagram.com/mark_advises/"
+            target="_blank"
+            class="mark-img"
+          ></a>
+          <p>
+            До речі, є у нас один пухнастий партнер, радимо навідатися до нього
+            в гості тєж. Просто тиць на фотку!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="delivery">
+      <div class="container">
+        <h3 class="block-heading">Найчастіші питання</h3>
+        <p class="block-subheading">
+          Куди замовити і як отримати зараз все покажемо та розповімо, а якщо
+          залишилися питання пишіть нам в інстаграм! будемо раді відповісти!
+        </p>
+        <div class="delivery-wrapper f-sb">
+          <div
+            class="col"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="450"
+          >
+            <div class="deliv-img"></div>
+            <h4 class="deliv-title">Де замовити ?</h4>
+            <p class="deliv-desc">Все через директ нашого інстаграма!</p>
+            <p class="deliv-desc">
+              Заздалегідь визначтеся, що вас цікавить, а якщо не визначитеся, ми
+              вам завжди допоможемо!
+            </p>
+          </div>
+          <div
+            class="col"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="950"
+          >
+            <div class="deliv-img"></div>
+            <h4 class="deliv-title">Як доглядати ?</h4>
+            <p class="deliv-desc">
+              Кожна річ має інструкцію з догляду, в якій за допомогою гугл
+              розбереться навіть дитина
+            </p>
+          </div>
+          <div
+            class="col"
+            data-aos="zoom-in"
+            data-aos-duration="1200"
+            data-aos-delay="1550"
+          >
+            <div class="deliv-img"></div>
+            <h4 class="deliv-title">Куди доставляють ?</h4>
+            <p class="deliv-desc">У відділення нової пошти або Укрпошти</p>
+            <p class="deliv-desc">За кордон укрпоштою</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="review" class="rewiev">
+      <div class="container">
+        <h3 class="block-heading">Вашi теплi слова</h3>
+        <p class="block-subheading">
+          Говоримо велике дякую за дуже теплі слова, це означає, що ми все
+          робимо не дарма. Якщо хочете подивитись бiльше вiдгукiв - свайпайте
+          <img src="./img/21j.png" alt="свайп иконка" />
+        </p>
+        <div class="owl-carousel">
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew1.png" alt="Фото отзыв первый слайд" />
+            </div>
+          </div>
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew2.png" alt="Фото отзыв второй слайд" />
+            </div>
+          </div>
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew3.png" alt="Фото отзыв третий слайд" />
+            </div>
+          </div>
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew4.png" alt="Фото отзыв четвёртый слайд" />
+            </div>
+          </div>
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew5.png" alt="Фото отзыв пятый слайд" />
+            </div>
+          </div>
+          <div class="slider-item f-sb">
+            <div class="slider-item__img">
+              <img src="./img/rew6.png" alt="Фото отзыв шестой слайд" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ending-note">
+      <div class="container">
+        <div class="content">
+          <p>
+            Завітайте до нашого
+            <a target="_blank" href="https://www.instagram.com/koshelivka_ua/"
+              >iнстаграм</a
+            >
+            та будьте в курсі всіх новин
+          </p>
+          <p>
+            <em>
+              Наш концепт не новий, але ми робимо свою справу з любов'ю до вас!
+              ©</em
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          With love from Ukraine
+          <img class="ukrheart" src="./img/ukraine.png" alt="heart" /> © 2022
+          All rights reserved.
+        </p>
+        <a
+          target="_blank"
+          href="https://www.instagram.com/rabid_dev/"
+          class="creater"
+          >made by rabid_dev</a
+        >
+      </div>
+    </footer>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
